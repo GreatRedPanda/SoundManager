@@ -149,16 +149,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DirectX11Init.cpp" />
-    <ClCompile Include="DragManager.cpp" />
-    <ClCompile Include="DropTarget.cpp" />
-    <ClCompile Include="FileHierarchyTab.cpp" />
-    <ClCompile Include="FilesViewerTab.cpp" />
-    <ClCompile Include="GuiItem.cpp" />
-    <ClCompile Include="GuiText.cpp" />
-    <ClCompile Include="GuiTree.cpp" />
-    <ClCompile Include="IDragGuiTarget.cpp" />
-    <ClCompile Include="IDropGuiTarget.cpp" />
+    <ClCompile Include="DirectXInit\DirectX11Init.cpp" />
+    <ClCompile Include="DragDropManagers\DragManager.cpp" />
+    <ClCompile Include="DragDropManagers\DropTarget.cpp" />
+    <ClCompile Include="DragDropManagers\IDragGuiTarget.cpp" />
+    <ClCompile Include="DragDropManagers\IDropGuiTarget.cpp" />
+    <ClCompile Include="FilesManagement\SoundsDataBase.cpp" />
+    <ClCompile Include="ImGuiAdvanced\GuiItem.cpp" />
+    <ClCompile Include="ImGuiAdvanced\GuiText.cpp" />
+    <ClCompile Include="ImGuiAdvanced\GuiTree.cpp" />
+    <ClCompile Include="ImGuiAdvanced\Input.cpp" />
+    <ClCompile Include="ImGuiAdvanced\ItemPositionCalculator.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />
     <ClCompile Include="ImGui\imgui_impl_dx10.cpp" />
@@ -167,27 +168,26 @@
     <ClCompile Include="ImGui\imgui_impl_win32.cpp" />
     <ClCompile Include="ImGui\imgui_tables.cpp" />
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
-    <ClCompile Include="Input.cpp" />
-    <ClCompile Include="ItemPositionCalculator.cpp" />
-    <ClCompile Include="SearchTab.cpp" />
     <ClCompile Include="SoundManager.cpp" />
-    <ClCompile Include="SoundPlayerTab.cpp" />
-    <ClCompile Include="SoundsDataBase.cpp" />
-    <ClCompile Include="TabBase.cpp" />
-    <ClCompile Include="TabsLayout.cpp" />
-    <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="Tabs\FileHierarchyTab.cpp" />
+    <ClCompile Include="Tabs\FilesViewerTab.cpp" />
+    <ClCompile Include="Tabs\SearchTab.cpp" />
+    <ClCompile Include="Tabs\SoundPlayerTab.cpp" />
+    <ClCompile Include="Tabs\TabBase.cpp" />
+    <ClCompile Include="Tabs\TabsLayout.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DirectX11Init.h" />
-    <ClInclude Include="DragManager.h" />
-    <ClInclude Include="DropTarget.h" />
-    <ClInclude Include="FileHierarchyTab.h" />
-    <ClInclude Include="FilesViewerTab.h" />
-    <ClInclude Include="GuiItem.h" />
-    <ClInclude Include="GuiText.h" />
-    <ClInclude Include="GuiTree.h" />
-    <ClInclude Include="IDragGuiTarget.h" />
-    <ClInclude Include="IDropGuiTarget.h" />
+    <ClInclude Include="DirectXInit\DirectX11Init.h" />
+    <ClInclude Include="DragDropManagers\DragManager.h" />
+    <ClInclude Include="DragDropManagers\DropTarget.h" />
+    <ClInclude Include="DragDropManagers\IDragGuiTarget.h" />
+    <ClInclude Include="DragDropManagers\IDropGuiTarget.h" />
+    <ClInclude Include="FilesManagement\SoundsDataBase.h" />
+    <ClInclude Include="ImGuiAdvanced\GuiItem.h" />
+    <ClInclude Include="ImGuiAdvanced\GuiText.h" />
+    <ClInclude Include="ImGuiAdvanced\GuiTree.h" />
+    <ClInclude Include="ImGuiAdvanced\Input.h" />
+    <ClInclude Include="ImGuiAdvanced\ItemPositionCalculator.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
     <ClInclude Include="ImGui\imgui_impl_dx10.h" />
@@ -198,14 +198,12 @@
     <ClInclude Include="ImGui\imstb_rectpack.h" />
     <ClInclude Include="ImGui\imstb_textedit.h" />
     <ClInclude Include="ImGui\imstb_truetype.h" />
-    <ClInclude Include="Input.h" />
-    <ClInclude Include="ItemPositionCalculator.h" />
-    <ClInclude Include="SearchTab.h" />
-    <ClInclude Include="SoundPlayerTab.h" />
-    <ClInclude Include="SoundsDataBase.h" />
-    <ClInclude Include="TabBase.h" />
-    <ClInclude Include="TabsLayout.h" />
-    <ClInclude Include="TaglibDef.h" />
+    <ClInclude Include="Tabs\FileHierarchyTab.h" />
+    <ClInclude Include="Tabs\FilesViewerTab.h" />
+    <ClInclude Include="Tabs\SearchTab.h" />
+    <ClInclude Include="Tabs\SoundPlayerTab.h" />
+    <ClInclude Include="Tabs\TabBase.h" />
+    <ClInclude Include="Tabs\TabsLayout.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -37,6 +37,18 @@
     <Filter Include="Исходные файлы\ImGUIAdvance">
       <UniqueIdentifier>{182af938-bf74-4241-94c1-c74599428c76}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\DragNDrop">
+      <UniqueIdentifier>{4384339a-abc4-46b8-92a7-47a49ceffbc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\FileManager">
+      <UniqueIdentifier>{fc9e693f-f77b-492c-9891-153495669797}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\ManagerTabs">
+      <UniqueIdentifier>{4d7e7e8e-51a0-4459-a8c0-dd723969b5a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\ImGuiAdvanced">
+      <UniqueIdentifier>{6598243d-8c47-43c0-bea2-4d3ff8338422}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SoundManager.cpp">
@@ -66,59 +78,56 @@
     <ClCompile Include="ImGui\imgui_widgets.cpp">
       <Filter>Исходные файлы\ImGUI</Filter>
     </ClCompile>
-    <ClCompile Include="TabBase.cpp">
+    <ClCompile Include="DragDropManagers\DragManager.cpp">
+      <Filter>Исходные файлы\DragNDrop</Filter>
+    </ClCompile>
+    <ClCompile Include="DragDropManagers\DropTarget.cpp">
+      <Filter>Исходные файлы\DragNDrop</Filter>
+    </ClCompile>
+    <ClCompile Include="DragDropManagers\IDragGuiTarget.cpp">
+      <Filter>Исходные файлы\DragNDrop</Filter>
+    </ClCompile>
+    <ClCompile Include="DragDropManagers\IDropGuiTarget.cpp">
+      <Filter>Исходные файлы\DragNDrop</Filter>
+    </ClCompile>
+    <ClCompile Include="Tabs\FileHierarchyTab.cpp">
       <Filter>Исходные файлы\ManagerTabs</Filter>
     </ClCompile>
-    <ClCompile Include="SoundPlayerTab.cpp">
+    <ClCompile Include="Tabs\FilesViewerTab.cpp">
       <Filter>Исходные файлы\ManagerTabs</Filter>
     </ClCompile>
-    <ClCompile Include="DirectX11Init.cpp">
+    <ClCompile Include="Tabs\SearchTab.cpp">
+      <Filter>Исходные файлы\ManagerTabs</Filter>
+    </ClCompile>
+    <ClCompile Include="Tabs\SoundPlayerTab.cpp">
+      <Filter>Исходные файлы\ManagerTabs</Filter>
+    </ClCompile>
+    <ClCompile Include="Tabs\TabBase.cpp">
+      <Filter>Исходные файлы\ManagerTabs</Filter>
+    </ClCompile>
+    <ClCompile Include="Tabs\TabsLayout.cpp">
+      <Filter>Исходные файлы\ManagerTabs</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuiAdvanced\GuiItem.cpp">
+      <Filter>Исходные файлы\ImGUIAdvance</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuiAdvanced\GuiText.cpp">
+      <Filter>Исходные файлы\ImGUIAdvance</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuiAdvanced\GuiTree.cpp">
+      <Filter>Исходные файлы\ImGUIAdvance</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuiAdvanced\Input.cpp">
+      <Filter>Исходные файлы\ImGUIAdvance</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuiAdvanced\ItemPositionCalculator.cpp">
+      <Filter>Исходные файлы\ImGUIAdvance</Filter>
+    </ClCompile>
+    <ClCompile Include="FilesManagement\SoundsDataBase.cpp">
+      <Filter>Исходные файлы\FileManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectXInit\DirectX11Init.cpp">
       <Filter>Исходные файлы\DirectXInit</Filter>
-    </ClCompile>
-    <ClCompile Include="FileHierarchyTab.cpp">
-      <Filter>Исходные файлы\ManagerTabs</Filter>
-    </ClCompile>
-    <ClCompile Include="FilesViewerTab.cpp">
-      <Filter>Исходные файлы\ManagerTabs</Filter>
-    </ClCompile>
-    <ClCompile Include="SearchTab.cpp">
-      <Filter>Исходные файлы\ManagerTabs</Filter>
-    </ClCompile>
-    <ClCompile Include="GuiItem.cpp">
-      <Filter>Исходные файлы\ImGUIAdvance</Filter>
-    </ClCompile>
-    <ClCompile Include="IDropGuiTarget.cpp">
-      <Filter>Исходные файлы\DragNDrop</Filter>
-    </ClCompile>
-    <ClCompile Include="DropTarget.cpp">
-      <Filter>Исходные файлы\DragNDrop</Filter>
-    </ClCompile>
-    <ClCompile Include="GuiTree.cpp">
-      <Filter>Исходные файлы\ImGUIAdvance</Filter>
-    </ClCompile>
-    <ClCompile Include="ItemPositionCalculator.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="SoundsDataBase.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="GuiText.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="DragManager.cpp">
-      <Filter>Исходные файлы\DragNDrop</Filter>
-    </ClCompile>
-    <ClCompile Include="IDragGuiTarget.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="TabsLayout.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Utils.cpp">
-      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,62 +161,59 @@
     <ClInclude Include="ImGui\imstb_truetype.h">
       <Filter>Файлы заголовков\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="TabBase.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundPlayerTab.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="FileHierarchyTab.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX11Init.h">
-      <Filter>Файлы заголовков\DirectXInit</Filter>
-    </ClInclude>
-    <ClInclude Include="FilesViewerTab.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchTab.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="DropTarget.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="GuiItem.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="IDropGuiTarget.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="GuiTree.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="ItemPositionCalculator.h">
-      <Filter>Исходные файлы\ImGUIAdvance</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundsDataBase.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="GuiText.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="DragManager.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="IDragGuiTarget.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="TaglibDef.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="TabsLayout.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Utils.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuiAdvanced\GuiItem.h">
+      <Filter>Файлы заголовков\ImGuiAdvanced</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuiAdvanced\GuiText.h">
+      <Filter>Файлы заголовков\ImGuiAdvanced</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuiAdvanced\GuiTree.h">
+      <Filter>Файлы заголовков\ImGuiAdvanced</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuiAdvanced\Input.h">
+      <Filter>Файлы заголовков\ImGuiAdvanced</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuiAdvanced\ItemPositionCalculator.h">
+      <Filter>Файлы заголовков\ImGuiAdvanced</Filter>
+    </ClInclude>
+    <ClInclude Include="Tabs\FileHierarchyTab.h">
+      <Filter>Файлы заголовков\ManagerTabs</Filter>
+    </ClInclude>
+    <ClInclude Include="Tabs\FilesViewerTab.h">
+      <Filter>Файлы заголовков\ManagerTabs</Filter>
+    </ClInclude>
+    <ClInclude Include="Tabs\SearchTab.h">
+      <Filter>Файлы заголовков\ManagerTabs</Filter>
+    </ClInclude>
+    <ClInclude Include="Tabs\SoundPlayerTab.h">
+      <Filter>Файлы заголовков\ManagerTabs</Filter>
+    </ClInclude>
+    <ClInclude Include="Tabs\TabBase.h">
+      <Filter>Файлы заголовков\ManagerTabs</Filter>
+    </ClInclude>
+    <ClInclude Include="Tabs\TabsLayout.h">
+      <Filter>Файлы заголовков\ManagerTabs</Filter>
+    </ClInclude>
+    <ClInclude Include="FilesManagement\SoundsDataBase.h">
+      <Filter>Файлы заголовков\FileManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DragDropManagers\DragManager.h">
+      <Filter>Файлы заголовков\DragNDrop</Filter>
+    </ClInclude>
+    <ClInclude Include="DragDropManagers\DropTarget.h">
+      <Filter>Файлы заголовков\DragNDrop</Filter>
+    </ClInclude>
+    <ClInclude Include="DragDropManagers\IDragGuiTarget.h">
+      <Filter>Файлы заголовков\DragNDrop</Filter>
+    </ClInclude>
+    <ClInclude Include="DragDropManagers\IDropGuiTarget.h">
+      <Filter>Файлы заголовков\DragNDrop</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXInit\DirectX11Init.h">
+      <Filter>Файлы заголовков\DirectXInit</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 #pragma once
-#include "TabBase.h"
-#include "GuiTree.h"
+#include "Tabs/TabBase.h"
+#include "ImGuiAdvaned/GuiTree.h"
 #include <boost/signals2.hpp>
 class FileHierarchyTab: public TabBase, Handler
 {

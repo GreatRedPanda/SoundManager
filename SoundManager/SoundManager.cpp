@@ -3,17 +3,17 @@
 #include "ImGUI\imgui_impl_dx11.h"
 #include <d3d11.h>
 #include <tchar.h>
-#include "DirectX11Init.h"
-#include "TabBase.h"
-#include "FileHierarchyTab.h"
-#include "SearchTab.h"
-#include "FilesViewerTab.h"
+#include "DirectXInit\DirectX11Init.h"
+#include "Tabs\TabBase.h"
+#include "Tabs\FileHierarchyTab.h"
+#include "Tabs\SearchTab.h"
+#include "Tabs\FilesViewerTab.h"
 
-#include "SoundPlayerTab.h"
+#include "Tabs\SoundPlayerTab.h"
 
-#include <DropTarget.h>
-#include "DragManager.h"
-#include "TabsLayout.h"
+#include <DragDropManagers\DropTarget.h>
+#include "DragDropManagers\DragManager.h"
+#include "Tabs\TabsLayout.h"
 
 #include <format>
 
