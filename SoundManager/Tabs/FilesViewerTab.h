@@ -9,7 +9,7 @@ public:
 	{
 
 	}
-	void Update(HWND hWnd) override;
+	//void Update(HWND hWnd) override;
 
 	void PrintSearchResult(std::vector<GuiTree> &result);
 

@@ -1,8 +1,8 @@
 #include "SearchTab.h"
 char SearchTab::str0[128]="Tags";
-void SearchTab::Update(HWND hWnd)
+void SearchTab::UpdateTabItems()
 {
-	TabBase::Update(hWnd);
+	//TabBase::Update(hWnd);
 
 	
 	ImGui::InputText("##Tags", str0, IM_ARRAYSIZE(str0));
@@ -22,5 +22,5 @@ void SearchTab::Update(HWND hWnd)
 	}
 
 
-	ImGui::End();
+//	ImGui::End();
 }

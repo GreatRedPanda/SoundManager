@@ -51,7 +51,8 @@ bool render(bool newFrame);
 bool renderLoop(bool newFrame,DirectX11Init dxInit, HWND hwnd, std::vector<TabBase*> tabs);
 // Main code
 //#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
-int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
+//int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
+int main(int, char**)
 {
 
     //int, char**

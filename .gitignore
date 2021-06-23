@@ -1,5 +1,7 @@
 /.vs/
 /Dependencies/
+/Debug/*.pdb
+
 # Prerequisites
 *.d
 

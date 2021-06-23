@@ -93,7 +93,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)..\Dependencies\boost_1_76_0\boost_1_76_0\stage\lib;D:\C++Projects\SoundManager\Dependencies\taglib\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>d3d11.lib;tag.lib;tag_c.lib;%(AdditionalDependencies)</AdditionalDependencies>

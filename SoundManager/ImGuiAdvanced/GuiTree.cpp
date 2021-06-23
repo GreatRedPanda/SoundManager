@@ -15,22 +15,67 @@ void GuiTree::Update()
 		ImGui::SameLine();
 	
 	}
+	
 
 	std::string s = StringConvert::StringToUTF8(name);
-	bool treeOPne = ImGui::TreeNodeEx(s.c_str(), flags);
+	bool treeOpen = ImGui::TreeNodeEx(s.c_str(), flags);
+	//ImGui::TreePush("32423");
 	CheckIsMouseOver();
 	checkDrag();
 	
-	if (treeOPne)
-	{
-		
-		for (auto &&i: treeItems)
-		{
-			i->Update();
-		}
 
+	if (ImGui::IsItemClicked(1) && !isMenuOpen)
+	{
+		isMenuOpen = true;
+		
+	}
+	
+
+	
+	if (isMenuOpen)
+	{
+		if (!isPopUpOpen)
+			isPopUpOpen = true;
+		//else
+		{
+			ImGui::OpenPopup("##nodeMenu");
+
+			if (ImGui::BeginPopup("##nodeMenu"))
+			{
+
+				if (ImGui::Button("Remove"));
+				{
+					if(ImGui::IsItemClicked(0))
+					Remove();
+
+				}
+				ImGui::EndPopup();
+			}
+		}
+	}
+	
+	if (ImGui::IsMouseDown(0) && isMenuOpen)
+	{
+		isPopUpOpen = false;
+		isMenuOpen = false;
+	}
+	if (treeOpen)
+	{
+		if (treeItems.size() > 0)
+		{
+			for (auto&& i : treeItems)
+			{
+				
+				i->Update();
+			}
+			
+		}
+		
 		ImGui::TreePop();
 	}
+	//ImGui::TreePop();
+
+	
 }
 
 void GuiTree::AcceptFiles(std::vector<std::wstring> files)

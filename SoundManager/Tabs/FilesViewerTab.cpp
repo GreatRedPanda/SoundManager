@@ -1,12 +1,12 @@
 #include "FilesViewerTab.h"
 
-void FilesViewerTab::Update(HWND hWnd)
-{
-	TabBase::Update(hWnd);
-
-
-	ImGui::End();
-}
+//void FilesViewerTab::Update(HWND hWnd)
+//{
+//	TabBase::Update(hWnd);
+//
+//
+//	ImGui::End();
+//}
 void FilesViewerTab::PrintSearchResult(std::vector<GuiTree>& result)
 {
 	for (auto& i : result)

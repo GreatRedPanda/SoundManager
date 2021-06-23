@@ -3,6 +3,28 @@
 #include <iostream>
 ImVec2 TabBase::scale = ImVec2(1, 1);
 bool TabBase::sizeChanged = false;
+void TabBase::UpdateStart()
+{
+	ImGui::SetNextWindowPos(GetPositionScaled(), 0, ImVec2(0, 0));
+	bool isOpen = false;
+	ImGui::Begin(name.c_str(), &isOpen, ImGuiWindowFlags_NoMove |
+		ImGuiWindowFlags_NoResize 
+		| ImGuiWindowFlags_NoDecoration  
+	);
+	ImGui::SetWindowSize(name.c_str(), GetSizeScaled());
+	CheckIsMouseOver();
+}
+void TabBase::UpdateTabItems()
+{
+	for (auto& i : childGuiItems)
+	{
+		i->Update();
+	}
+}
+void TabBase::UpdateTabEnd()
+{
+	ImGui::End();
+}
 TabBase::TabBase(std::string name, ImVec2 pos, ImVec2 size)
 {
 	
@@ -33,78 +55,9 @@ ImVec2 TabBase::GetVieportScale(ImVec2 scaleCoef)
 void TabBase::Update(HWND hWnd)
 {
 
-	//if (GetFocus() != hWnd)
-	//{
-	//	RECT rect;
-	//	GetWindowRect(hWnd, &rect);
-	//	POINT p;
-	//	(GetCursorPos(&p));
-
-	//	//ImGui::GetIO().MousePosPrev = ImVec2(0, 0);
-	//    ImGui::GetIO().MousePos = ImVec2(p.x - rect.left - 8, p.y - rect.top - 31);
-	//	//ImGui::GetIO().MousePos = ImVec2(520, 240);
-
-	//}
-	//if (isResizing)
-	//{
-	//	//ImGui::GetIO().MouseDown[0] = 0;
-	//	
-	//	OnResizing( this, 0, resize);
-
-	//}
-
-	ImGui::SetNextWindowPos(GetPositionScaled(), 0, ImVec2(0, 0));
-	bool isOPne = false;
-	
-	
-	ImGui::Begin(name.c_str(), &isOPne,  ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize| ImGuiWindowFlags_NoDecoration );
-	//if (isFirstSetup || sizeChanged)
-	//{	
-	//	isFirstSetup = false;
-	//	ImGui::SetWindowSize(name.c_str(), ImVec2(size.x * scale.x, size.y * scale.y));
-	//}
-	
-	ImGui::SetWindowSize(name.c_str(), GetSizeScaled());
-	 
-	
-	
-	//ImVec2 newSize=ImGui::GetWindowSize();
-	//ImVec2 newPos = ImGui::GetWindowPos();
-	//ImVec2 rectSize= ImGui::GetItemRectSize();
-
-	//if ((GetKeyState(VK_LBUTTON) & 0x8000) != 0)
-	//{
-	//	ImVec2 delta=	ImGui::GetMouseDragDelta();
-	//}
-	//if (ImGui::GetIO().MouseDown[0] && (newPos.x != GetPositionScaled().x || newPos.y != GetPositionScaled().y))
-	//{
-	//	isResizing = true;
-	//	resize.x = (newPos.x - GetPositionScaled().x);
-	//	resize.y = (newPos.y- GetPositionScaled().y)/scale.y;
-	//	//std::cout << newPos.x << "  " << newPos.y << "  " << pos.x * scale.x << "  " << pos.y * scale.y << '\n';
-	//	std::cout << ImGui::GetWindowViewport()->Size.x << "  " << ImGui::GetWindowViewport()->Size.y << "  "  << '\n';
-	//	std::cout << GetSizeScaled().x << "  " << GetSizeScaled().y << "  " << '\n';
-	//}
-	//else
-	//	isResizing = false;
-
-
-	//if (ImGui::GetIO().MouseDown[0] && (newSize.x != int(size.x * scale.x) || newSize.y != int(size.y * scale.y)))
-	//{
-	//	isResizing = true;
-	//	resize.x = newSize.x / scale.x - size.x;
-	//	resize.y = newSize.y / scale.y - size.y;
-	//}
-	//else
-	//	isResizing = false;
-	//
-	//
-
-	CheckIsMouseOver();
-	for (auto& i : childGuiItems)
-	{
-		i->Update();
-	}
+	UpdateStart();
+	UpdateTabItems();
+	UpdateTabEnd();
 }
 
 bool TabBase::CheckIsMouseOver()
@@ -140,3 +93,84 @@ bool TabBase::IsDropAccepting()
 	//std::cout << name.c_str() << std::endl;
 	return isAcceptingDrop;
 }
+
+
+
+
+
+
+
+
+
+//if (GetFocus() != hWnd)
+	////{
+	////	RECT rect;
+	////	GetWindowRect(hWnd, &rect);
+	////	POINT p;
+	////	(GetCursorPos(&p));
+
+	////	//ImGui::GetIO().MousePosPrev = ImVec2(0, 0);
+	////    ImGui::GetIO().MousePos = ImVec2(p.x - rect.left - 8, p.y - rect.top - 31);
+	////	//ImGui::GetIO().MousePos = ImVec2(520, 240);
+
+	////}
+	////if (isResizing)
+	////{
+	////	//ImGui::GetIO().MouseDown[0] = 0;
+	////	
+	////	OnResizing( this, 0, resize);
+
+	////}
+
+	//ImGui::SetNextWindowPos(GetPositionScaled(), 0, ImVec2(0, 0));
+	//bool isOpen = false;
+	//
+	//
+	//ImGui::Begin(name.c_str(), &isOpen,  ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize| ImGuiWindowFlags_NoDecoration );
+	////if (isFirstSetup || sizeChanged)
+	////{	
+	////	isFirstSetup = false;
+	////	ImGui::SetWindowSize(name.c_str(), ImVec2(size.x * scale.x, size.y * scale.y));
+	////}
+	//
+	//ImGui::SetWindowSize(name.c_str(), GetSizeScaled());
+	// 
+	//
+	//
+	////ImVec2 newSize=ImGui::GetWindowSize();
+	////ImVec2 newPos = ImGui::GetWindowPos();
+	////ImVec2 rectSize= ImGui::GetItemRectSize();
+
+	////if ((GetKeyState(VK_LBUTTON) & 0x8000) != 0)
+	////{
+	////	ImVec2 delta=	ImGui::GetMouseDragDelta();
+	////}
+	////if (ImGui::GetIO().MouseDown[0] && (newPos.x != GetPositionScaled().x || newPos.y != GetPositionScaled().y))
+	////{
+	////	isResizing = true;
+	////	resize.x = (newPos.x - GetPositionScaled().x);
+	////	resize.y = (newPos.y- GetPositionScaled().y)/scale.y;
+	////	//std::cout << newPos.x << "  " << newPos.y << "  " << pos.x * scale.x << "  " << pos.y * scale.y << '\n';
+	////	std::cout << ImGui::GetWindowViewport()->Size.x << "  " << ImGui::GetWindowViewport()->Size.y << "  "  << '\n';
+	////	std::cout << GetSizeScaled().x << "  " << GetSizeScaled().y << "  " << '\n';
+	////}
+	////else
+	////	isResizing = false;
+
+
+	////if (ImGui::GetIO().MouseDown[0] && (newSize.x != int(size.x * scale.x) || newSize.y != int(size.y * scale.y)))
+	////{
+	////	isResizing = true;
+	////	resize.x = newSize.x / scale.x - size.x;
+	////	resize.y = newSize.y / scale.y - size.y;
+	////}
+	////else
+	////	isResizing = false;
+	////
+	////
+
+	//CheckIsMouseOver();
+	//for (auto& i : childGuiItems)
+	//{
+	//	i->Update();
+	//}
