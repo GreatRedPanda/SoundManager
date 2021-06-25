@@ -5,13 +5,13 @@
 class FileHierarchyTab: public TabBase, Handler
 {
 	GuiTree* defaultFolder;
+	GuiTree* currentSelectedItem;
 	float scrollHierarchy;
-
 	void addFilesToHierarchy(FileHierarchyTab* fh, IDropGuiTarget* tg, std::vector<std::wstring> files);
 	void searchInFolder(std::vector<GuiTree > &result, GuiTree & folder, std::string searchData);
+
+
 	
-	/*void addFolder();
-	void addFile();*/
 
 protected:
 	void UpdateStart() override;

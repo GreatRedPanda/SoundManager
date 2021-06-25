@@ -4,12 +4,6 @@ D:\C++Projects\SoundManager\SoundManager\Tabs\TabBase.h(57,20): warning C4244: �
 D:\C++Projects\SoundManager\SoundManager\Tabs\TabBase.h(61,43): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 D:\C++Projects\SoundManager\SoundManager\Tabs\TabBase.h(61,20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   The contents of <format> are available only with C++20 concepts support.
-D:\C++Projects\SoundManager\SoundManager\SoundManager.cpp(236,78): warning C4244: аргумент: преобразование "LONG" в "float", возможна потеря данных
-D:\C++Projects\SoundManager\SoundManager\SoundManager.cpp(236,58): warning C4244: аргумент: преобразование "LONG" в "float", возможна потеря данных
-  FileHierarchyTab.cpp
-D:\C++Projects\SoundManager\SoundManager\Tabs\TabBase.h(57,42): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-D:\C++Projects\SoundManager\SoundManager\Tabs\TabBase.h(57,20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-D:\C++Projects\SoundManager\SoundManager\Tabs\TabBase.h(61,43): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-D:\C++Projects\SoundManager\SoundManager\Tabs\TabBase.h(61,20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-  Создание кода...
+D:\C++Projects\SoundManager\SoundManager\SoundManager.cpp(230,78): warning C4244: аргумент: преобразование "LONG" в "float", возможна потеря данных
+D:\C++Projects\SoundManager\SoundManager\SoundManager.cpp(230,58): warning C4244: аргумент: преобразование "LONG" в "float", возможна потеря данных
   SoundManager.vcxproj -> D:\C++Projects\SoundManager\Debug\SoundManager.exe

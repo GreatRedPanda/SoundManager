@@ -5,8 +5,16 @@ void SoundPlayerTab::UpdateTabItems()
 
 
 	ImGui::Button("Play");
+	if (ImGui::IsItemClicked(0))
+	{
+		OnSoundPlay();
+	}
 	ImGui::SameLine();
 	ImGui::Button("Stop");
+	if (ImGui::IsItemClicked(0))
+	{
+		OnSoundStop();
+	}
 	ImVec2 btnSize = ImGui::GetItemRectSize();
 	static float arr[] = { 0.6f, 0.1f, 1.0f, 0.5f, 0.92f, 0.1f, 0.2f };
     char overlay[32];

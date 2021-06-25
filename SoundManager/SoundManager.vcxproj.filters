@@ -129,6 +129,15 @@
     <ClCompile Include="DirectXInit\DirectX11Init.cpp">
       <Filter>Исходные файлы\DirectXInit</Filter>
     </ClCompile>
+    <ClCompile Include="RtAudioPlayer.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectedFilesPool.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuiAdvanced\ISelectable.cpp">
+      <Filter>Исходные файлы\ImGUIAdvance</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -214,6 +223,15 @@
     </ClInclude>
     <ClInclude Include="DirectXInit\DirectX11Init.h">
       <Filter>Файлы заголовков\DirectXInit</Filter>
+    </ClInclude>
+    <ClInclude Include="RtAudioPlayer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectedFilesPool.h">
+      <Filter>Файлы заголовков\ImGuiAdvanced</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuiAdvanced\ISelectable.h">
+      <Filter>Файлы заголовков\ImGuiAdvanced</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

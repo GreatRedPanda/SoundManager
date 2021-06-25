@@ -59,27 +59,6 @@ void FileHierarchyTab::UpdateTabItems()
 void FileHierarchyTab::AcceptFiles(std::vector<std::wstring> files)
 {
 	addFilesToHierarchy(this, defaultFolder, files);
-
-	/*for (auto &i: files)
-	{
-		bool isDir;
-		bool isSound;
-		std::string fn=	SoundsDataBase::GetSoundDataBase()->HandleAddedFile(i, isDir, isSound);		
-		if (isDir)
-		{
-			GuiTree* tree = new GuiTree(fn);	
-			tree->SetDropAccept();
-			tree->SetCheckbox(true);
-			childGuiItems.push_back(tree);			
-			tree->AddListenerToDrop(this, HandleDropToTabChild);
-			tree->SetData(i);
-		}
-		else if(isSound)
-		{
-			GuiTree* nf = defaultFolder->AddLeaf(fn);
-			nf->SetData(i);
-		}
-	}*/
 }
 
 void FileHierarchyTab::HandleDropToTabChild(Handler* fh, IDropGuiTarget *tg, std::vector<std::wstring> files)
@@ -91,11 +70,8 @@ void FileHierarchyTab::HandleDropToTabChild(Handler* fh, IDropGuiTarget *tg, std
 
 void FileHierarchyTab::SearchInit(std::string searchData)
 {
-	//std::string searchData = "sdf";
+
 	std::vector<GuiTree> result = std::vector<GuiTree>();
-
-	//searchInFolder(result, *defaultFolder, searchData);
-
 	for (auto& i : childGuiItems)
 	{
 		GuiTree* gt = dynamic_cast<GuiTree*>(i);
@@ -156,6 +132,7 @@ void FileHierarchyTab::addFilesToHierarchy(FileHierarchyTab* fh, IDropGuiTarget*
 		{
 			GuiTree* nf = gt->AddLeaf(fileName);
 			nf->SetData(i);
+			//nf->OnSelected.connect(boost::bind(&FileHierarchyTab::SetSelectedFile, this, nf));
 		}
 	}
 
@@ -187,3 +164,7 @@ void FileHierarchyTab::searchInFolder(std::vector<GuiTree>& result, GuiTree& fol
 	}
 
 }
+//
+//void FileHierarchyTab::SetSelectedFile(GuiTree* file)
+//{
+//}

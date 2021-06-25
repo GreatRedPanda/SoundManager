@@ -25,7 +25,18 @@ public:
             nullptr, nullptr);
         return utf8_str;
 	}
+    static std::string WStringToUTF8(std::wstring origin)
+    {
+        int utf8_size = WideCharToMultiByte(CP_UTF8, 0, origin.c_str(),
+            origin.length(), nullptr, 0,
+            nullptr, nullptr);
+        std::string utf8_str(utf8_size, '\0');
+        WideCharToMultiByte(CP_UTF8, 0, origin.c_str(),
+            origin.length(), &utf8_str[0], utf8_size,
+            nullptr, nullptr);
 
+        return utf8_str;
+    }
     static
         std::wstring StringToUTF16(const std::string& str)
     {

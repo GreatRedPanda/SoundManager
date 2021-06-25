@@ -29,7 +29,11 @@ void GuiTree::Update()
 		isMenuOpen = true;
 		
 	}
-	
+	if (ImGui::IsItemFocused())
+	{
+
+		OnSelected(this);
+	}
 
 	
 	if (isMenuOpen)

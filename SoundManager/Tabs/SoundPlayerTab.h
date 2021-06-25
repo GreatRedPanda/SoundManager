@@ -1,5 +1,6 @@
 #pragma once
 #include "TabBase.h"
+#include <boost/signals2.hpp>
 class SoundPlayerTab : public TabBase
 {
 protected:
@@ -10,5 +11,9 @@ public:
 	{
 
 	}
+
+	boost::signals2::signal <void()> OnSoundPlay;
+	boost::signals2::signal <void()> OnSoundStop;
+
 
 };

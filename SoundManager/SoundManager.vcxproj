@@ -88,15 +88,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\SoundManager;$(ProjectDir)..\Dependencies\boost_1_76_0\boost_1_76_0;D:\C++Projects\SoundManager\Dependencies\taglib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\SoundManager;$(ProjectDir)..\Dependencies\boost_1_76_0\boost_1_76_0;$(ProjectDir)..\Dependencies\taglib\include;$(ProjectDir)..\Dependencies\RtAudio\buildDebug\include\rtaudio;$(ProjectDir)..\Dependencies\irrklnag\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\Dependencies\boost_1_76_0\boost_1_76_0\stage\lib;D:\C++Projects\SoundManager\Dependencies\taglib\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>d3d11.lib;tag.lib;tag_c.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\Dependencies\boost_1_76_0\boost_1_76_0\stage\lib;$(ProjectDir)..\Dependencies\taglib\lib;$(ProjectDir)..\Dependencies\RtAudio\buildDebug\Debug;$(ProjectDir)..\Dependencies\irrklnag\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d11.lib;tag.lib;tag_c.lib;rtaudiod.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -159,6 +159,7 @@
     <ClCompile Include="ImGuiAdvanced\GuiText.cpp" />
     <ClCompile Include="ImGuiAdvanced\GuiTree.cpp" />
     <ClCompile Include="ImGuiAdvanced\Input.cpp" />
+    <ClCompile Include="ImGuiAdvanced\ISelectable.cpp" />
     <ClCompile Include="ImGuiAdvanced\ItemPositionCalculator.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />
@@ -168,6 +169,8 @@
     <ClCompile Include="ImGui\imgui_impl_win32.cpp" />
     <ClCompile Include="ImGui\imgui_tables.cpp" />
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="RtAudioPlayer.cpp" />
+    <ClCompile Include="SelectedFilesPool.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Tabs\FileHierarchyTab.cpp" />
     <ClCompile Include="Tabs\FilesViewerTab.cpp" />
@@ -187,6 +190,7 @@
     <ClInclude Include="ImGuiAdvanced\GuiText.h" />
     <ClInclude Include="ImGuiAdvanced\GuiTree.h" />
     <ClInclude Include="ImGuiAdvanced\Input.h" />
+    <ClInclude Include="ImGuiAdvanced\ISelectable.h" />
     <ClInclude Include="ImGuiAdvanced\ItemPositionCalculator.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
@@ -198,6 +202,8 @@
     <ClInclude Include="ImGui\imstb_rectpack.h" />
     <ClInclude Include="ImGui\imstb_textedit.h" />
     <ClInclude Include="ImGui\imstb_truetype.h" />
+    <ClInclude Include="RtAudioPlayer.h" />
+    <ClInclude Include="SelectedFilesPool.h" />
     <ClInclude Include="Tabs\FileHierarchyTab.h" />
     <ClInclude Include="Tabs\FilesViewerTab.h" />
     <ClInclude Include="Tabs\SearchTab.h" />

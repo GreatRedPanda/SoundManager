@@ -28,8 +28,9 @@ public:
 	virtual void DrawFileAccept() override;
 	bool IsDropAccepting() override;
 	void checkDrag() override;
-
 	void EndDrag() override;
+
+
 };
 
 #endif

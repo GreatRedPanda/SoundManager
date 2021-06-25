@@ -1,12 +1,15 @@
 #pragma once
+
 #include "GuiItem.h"
 #include "ImGui/imgui.h"
 #include <vector>
+#include <SelectedFilesPool.h>
 #include <boost/signals2.hpp>
+#include "ISelectable.h"
 
-class GuiTree: public GuiItem
+class GuiTree: public GuiItem, public ISelectable
 {
-	std::wstring itemData;
+	//std::wstring itemData;
 	std::vector<GuiTree*> treeItems = std::vector<GuiTree*>();
 	ImGuiTreeNodeFlags flags;
 	bool isIncluded;
@@ -15,41 +18,35 @@ class GuiTree: public GuiItem
 	bool isMenuOpen;
 	bool isPopUpOpen;
 	boost:: signals2::signal <void(GuiTree *child)> OnRemoved;
+	
 public:
 	GuiTree(const GuiTree& origin)
 	{
 		flags=	origin.flags;
 		name = origin.name;
-
 		itemData = origin.itemData;
 		treeItems = origin.treeItems;
 		isDirectory = origin.isDirectory;
-
 		isCheckboxExist = origin.isCheckboxExist;
-
+		OnSelected.connect(boost::bind(&SelectedFilesPool::AddSelectedFile, SelectedFilesPool::Pool, this));
 	}
 	GuiTree(std::string name):GuiItem(name, ImVec2(0,0))
 	{
 		isIncluded = true;
 		isCheckboxExist = false;
 		flags = ImGuiTreeNodeFlags_None ;
-		
+		OnSelected.connect(boost::bind(&SelectedFilesPool::AddSelectedFile, SelectedFilesPool::Pool, this));
+		//Pool.
 	}
 	GuiTree(std::string name, ImVec2 size) :GuiItem(name, size)
 	{
 		isIncluded = true;
 		isCheckboxExist = false;
 		flags = ImGuiTreeNodeFlags_None;
+		OnSelected.connect(boost::bind(&SelectedFilesPool::AddSelectedFile, SelectedFilesPool::Pool, this));
 	}
 
-	void SetData(std::wstring data) {
-	
-		itemData = data;
-	}
-	std::wstring GetData() {
 
-		return itemData ;
-	}
 	void Update() override;
 	virtual void AcceptFiles(std::vector<std::wstring> files) override;
 	virtual void DrawFileAccept() override;
@@ -73,14 +70,12 @@ public:
 	{
 		return nullptr;
 	}
-
 	void SetCheckbox(bool isCheckboxExist)
 	{
 		isDirectory = true;
 		this->isCheckboxExist = isCheckboxExist;
 	}
 	LPCWSTR GetPath() override;
-
 	std::vector<GuiTree*> GetChildren()
 	{
 		return treeItems;
@@ -94,9 +89,6 @@ public:
 	{
 		return 	isDirectory ;
 	;}
-
-
-
 	void RemoveChild(GuiTree *child)
 	{
 
@@ -118,5 +110,8 @@ public:
 		delete this;
 		
 	}
+
+	
+
 };
 

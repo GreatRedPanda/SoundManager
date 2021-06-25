@@ -8,15 +8,13 @@
 #include "Tabs\FileHierarchyTab.h"
 #include "Tabs\SearchTab.h"
 #include "Tabs\FilesViewerTab.h"
-
 #include "Tabs\SoundPlayerTab.h"
-
 #include <DragDropManagers\DropTarget.h>
 #include "DragDropManagers\DragManager.h"
 #include "Tabs\TabsLayout.h"
-
 #include <format>
 
+#include "RtAudioPlayer.h"
 static ID3D11Device* g_pd3dDevice = NULL;
 static ID3D11DeviceContext* g_pd3dDeviceContext = NULL;
 static IDXGISwapChain* g_pSwapChain = NULL;
@@ -104,15 +102,8 @@ int main(int, char**)
         style.Colors[ImGuiCol_WindowBg].w = 1.0f;
     }
 
-    // Setup Platform/Renderer backends
     ImGui_ImplWin32_Init(hwnd);
     ImGui_ImplDX11_Init(g_pd3dDevice, g_pd3dDeviceContext);
-   /* d11Init.CreateContext();
-    d11Init.SetupRenderBackend(hwnd);*/
-
-    //bool show_demo_window = true;
-    //bool show_another_window = false;
-    //ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
     w_HWND = hwnd;
     SearchTab searchTab = SearchTab("Search", ImVec2(0, 0.5f), ImVec2(20,2));
@@ -140,8 +131,8 @@ int main(int, char**)
     positions = { ImVec2(0, 0.5f) , ImVec2(0,2),ImVec2(8, 2),  ImVec2(0, 12) };
     sizes= { ImVec2(20, 2) , ImVec2(8,10),ImVec2(12, 10),  ImVec2(20, 5) };
     flags = { &winOr_st,&winOr_fht,&winOr_fvt,& winOr_spt };
-    // Main loop
-    //bool done = false;
+
+
 
     DragManager dragManager= DragManager(hwnd);
     DropTarget dm;
@@ -156,8 +147,11 @@ int main(int, char**)
     searchTab.OnClearResult.connect(boost::bind(&FilesViewerTab::ClearResult, &fViewerTab));
     dm.dragManager = &dragManager;
 
-
-    TabsLayout tabsLayout = TabsLayout();
+    RtAudioPlayer player = RtAudioPlayer();
+  //  player.Play();
+    soundPlayerTab.OnSoundPlay.connect(boost::bind(&RtAudioPlayer::Play, &player));
+   // soundPlayerTab.OnSoundStop.connect(boost::bind((&RtAudioPlayer::Stop, &player)));
+ /*   TabsLayout tabsLayout = TabsLayout();
 
     TabNeighbours fHiTabNbs = TabNeighbours();
     fHiTabNbs.up = &searchTab;
@@ -167,7 +161,7 @@ int main(int, char**)
     tabsLayout.AddTabLayout(&fhTab, &fHiTabNbs);
     fhTab.OnResizing.connect(boost::bind(&TabsLayout::SetSizes, &tabsLayout,
         boost::placeholders::_1,
-        boost::placeholders::_2, boost::placeholders::_3));
+        boost::placeholders::_2, boost::placeholders::_3));*/
     bool done = false;
     while (!done)
     {          
