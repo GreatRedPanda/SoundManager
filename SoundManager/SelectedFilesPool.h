@@ -1,7 +1,7 @@
 #pragma once
 #include "ImGuiAdvanced/ISelectable.h"
 #include <string>
-
+#include <irrKlang.h>
 
 /// <summary>
 /// TODO:
@@ -20,7 +20,11 @@ public:
 	 void AddSelectedFile(ISelectable* file);
 	 std::wstring GetSelectedFile();
 
-
+	 //irrklang::ISoundSource  getSound(irrklang::ISoundEngine& engine)
+	 //{
+	 //
+	 //return engine.getSoundSource()
+	 //}
 
 };
 

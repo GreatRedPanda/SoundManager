@@ -83,18 +83,36 @@ SoundsDataBase* SoundsDataBase::GetSoundDataBase()
 {
     return dataBase;
 }
+char* getSamples(std::wstring filePath)
+{
+    TagLib::FileRef fr(filePath.c_str());
+    //TagLib::IOStream::
+    TagLib::ByteVector b=fr.file()->readBlock(10);
 
+    
+    return  b.data();
+}
 bool SoundsDataBase::CheckFileMeta(std::wstring filePath, std::vector<std::string> keyWords)
 {
     std::string keyWord = keyWords[0];
     TagLib::FileRef fr(filePath.c_str());
+    
+    ////TagLib::IOStream::
+    //TagLib::ByteVector b = fr.file()->readBlock(20);
+    //char* d = b.data();
+    //for(int i = 0; i < 20; i++)
+    //{
+    //    int k = *d;
+    //    d++;
+    //}
+    //getSamples(filePath);
     //TagLib::String name = fr.file()->name().toString();
     //TagLib::String artist = fr.tag()->artist();
     //TagLib::String album = fr.tag()->album();
    
    std::wstring name = fr.file()->name().wstr();
    // int hasInName = fr.file()->name().toString().find(keyWord);
-
+  //fr.file()->readBlock(1000);
    // hasInName = StringSearch::PhrasePartsExists(name, keyWord);
     if (StringSearch::PhrasePartsExists(name, keyWord))
         return true;

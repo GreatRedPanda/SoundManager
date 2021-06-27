@@ -1,4 +1,5 @@
 ﻿#include "ImGUI\imgui.h"
+#include "ImGUI\implot.h"
 #include "ImGUI\imgui_impl_win32.h"
 #include "ImGUI\imgui_impl_dx11.h"
 #include <d3d11.h>
@@ -15,6 +16,10 @@
 #include <format>
 
 #include "RtAudioPlayer.h"
+#include "soloud.h"
+#include "soloud_speech.h"
+#include "soloud_openmpt.h"
+#include "soloud_wav.h"
 static ID3D11Device* g_pd3dDevice = NULL;
 static ID3D11DeviceContext* g_pd3dDeviceContext = NULL;
 static IDXGISwapChain* g_pSwapChain = NULL;
@@ -51,11 +56,7 @@ bool renderLoop(bool newFrame,DirectX11Init dxInit, HWND hwnd, std::vector<TabBa
 //#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 //int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 int main(int, char**)
-{
-
-    //int, char**
-    // Create application window
-    //ImGui_ImplWin32_EnableDpiAwareness();
+{  
     WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(NULL), NULL, NULL, NULL, NULL, _T("ImGui Example"), NULL };
     ::RegisterClassEx(&wc);
     HWND hwnd = ::CreateWindow(wc.lpszClassName, _T("Sound search"), WS_OVERLAPPEDWINDOW, 100, 100, 1280, 800, NULL, NULL, wc.hInstance, NULL);
@@ -77,6 +78,7 @@ int main(int, char**)
     ::UpdateWindow(hwnd);
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
+    ImPlot::CreateContext();
      io = ImGui::GetIO(); (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
     //io.ConfigFlags  |=console
@@ -104,7 +106,7 @@ int main(int, char**)
 
     ImGui_ImplWin32_Init(hwnd);
     ImGui_ImplDX11_Init(g_pd3dDevice, g_pd3dDeviceContext);
-
+    RtAudioPlayer player = RtAudioPlayer();
     w_HWND = hwnd;
     SearchTab searchTab = SearchTab("Search", ImVec2(0, 0.5f), ImVec2(20,2));
     InnerWindowOrientation winOr_st = InnerWindowOrientation();
@@ -124,7 +126,7 @@ int main(int, char**)
     winOr_fvt.maxWidthPercent = 12 / scaleCoefX; winOr_fvt.maxHeightPercent = 13 / scaleCoefY;
 
 
-    SoundPlayerTab soundPlayerTab = SoundPlayerTab("Player", ImVec2(0, 12), ImVec2(20, 8));
+    SoundPlayerTab soundPlayerTab = SoundPlayerTab(player,"Player", ImVec2(0, 12), ImVec2(20, 8));
     InnerWindowOrientation winOr_spt = InnerWindowOrientation();
     winOr_spt.sameLine = false;
     winOr_spt.maxWidthPercent = 1; winOr_spt.maxHeightPercent = 5 / scaleCoefY;
@@ -147,10 +149,10 @@ int main(int, char**)
     searchTab.OnClearResult.connect(boost::bind(&FilesViewerTab::ClearResult, &fViewerTab));
     dm.dragManager = &dragManager;
 
-    RtAudioPlayer player = RtAudioPlayer();
+    
   //  player.Play();
     soundPlayerTab.OnSoundPlay.connect(boost::bind(&RtAudioPlayer::Play, &player));
-   // soundPlayerTab.OnSoundStop.connect(boost::bind((&RtAudioPlayer::Stop, &player)));
+    soundPlayerTab.OnSoundStop.connect(boost::bind(&RtAudioPlayer::Stop, &player));
  /*   TabsLayout tabsLayout = TabsLayout();
 
     TabNeighbours fHiTabNbs = TabNeighbours();
@@ -186,7 +188,7 @@ int main(int, char**)
     ImGui_ImplDX11_Shutdown();
     ImGui_ImplWin32_Shutdown();
     ImGui::DestroyContext();
-
+    ImPlot::DestroyContext();
     CleanupDeviceD3D();
     ::DestroyWindow(hwnd);
     ::UnregisterClass(wc.lpszClassName, wc.hInstance);

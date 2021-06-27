@@ -49,6 +49,27 @@
     <Filter Include="Файлы заголовков\ImGuiAdvanced">
       <UniqueIdentifier>{6598243d-8c47-43c0-bea2-4d3ff8338422}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{eae0e840-82b4-41cc-8bb4-07329ff86196}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\speech">
+      <UniqueIdentifier>{28fa5e2a-0861-43c6-a9d8-320691595f39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\wav">
+      <UniqueIdentifier>{560eeb51-f1b0-4ba6-802a-1a393221cd49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{95cc83bc-b9d7-4a1b-b6dc-87c0cf430280}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\backend">
+      <UniqueIdentifier>{39da08f8-3e9a-4d98-afd3-c2e3253951db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\openmpt">
+      <UniqueIdentifier>{d54ec46f-6aef-499e-ad14-9bb48741a324}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\headers">
+      <UniqueIdentifier>{783f8cbc-31a6-492d-8296-b1ed9968afcc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SoundManager.cpp">
@@ -137,6 +158,105 @@
     </ClCompile>
     <ClCompile Include="ImGuiAdvanced\ISelectable.cpp">
       <Filter>Исходные файлы\ImGUIAdvance</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audiosource\speech\darray.cpp">
+      <Filter>src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audiosource\speech\klatt.cpp">
+      <Filter>src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audiosource\speech\resonator.cpp">
+      <Filter>src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audiosource\speech\soloud_speech.cpp">
+      <Filter>src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audiosource\speech\tts.cpp">
+      <Filter>src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audiosource\wav\dr_impl.cpp">
+      <Filter>src\wav</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audiosource\wav\soloud_wav.cpp">
+      <Filter>src\wav</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audiosource\wav\soloud_wavstream.cpp">
+      <Filter>src\wav</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audiosource\wav\stb_vorbis.c">
+      <Filter>src\wav</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_audiosource.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_bus.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_core_3d.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_core_basicops.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_core_faderops.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_core_filterops.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_core_getters.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_core_setters.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_core_voicegroup.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_core_voiceops.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_fader.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_fft.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_fft_lut.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_file.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_filter.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_misc.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_queue.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\soloud_thread.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audiosource\openmpt\soloud_openmpt.cpp">
+      <Filter>src\openmpt</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audiosource\openmpt\soloud_openmpt_dll.c">
+      <Filter>src\openmpt</Filter>
+    </ClCompile>
+    <ClCompile Include="src\backend\winmm\soloud_winmm.cpp">
+      <Filter>src\backend</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\implot.cpp">
+      <Filter>Исходные файлы\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\implot_items.cpp">
+      <Filter>Исходные файлы\ImGUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -233,5 +353,159 @@
     <ClInclude Include="ImGuiAdvanced\ISelectable.h">
       <Filter>Файлы заголовков\ImGuiAdvanced</Filter>
     </ClInclude>
+    <ClInclude Include="src\audiosource\speech\darray.h">
+      <Filter>src\speech</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audiosource\speech\klatt.h">
+      <Filter>src\speech</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audiosource\speech\resonator.h">
+      <Filter>src\speech</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audiosource\speech\tts.h">
+      <Filter>src\speech</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audiosource\wav\dr_flac.h">
+      <Filter>src\wav</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audiosource\wav\dr_mp3.h">
+      <Filter>src\wav</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audiosource\wav\dr_wav.h">
+      <Filter>src\wav</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audiosource\wav\stb_vorbis.h">
+      <Filter>src\wav</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_audiosource.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_ay.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_bassboostfilter.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_biquadresonantfilter.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_bus.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_c.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_dcremovalfilter.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_echofilter.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_eqfilter.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_error.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_fader.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_fft.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_fftfilter.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_file.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_file_hack_off.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_file_hack_on.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_filter.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_flangerfilter.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_freeverbfilter.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_internal.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_lofifilter.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_misc.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_monotone.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_noise.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_openmpt.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_queue.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_robotizefilter.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_sfxr.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_speech.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_tedsid.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_thread.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_vic.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_vizsn.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_wav.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_waveshaperfilter.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\soloud_wavstream.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\zx7decompress.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\implot.h">
+      <Filter>Файлы заголовков\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\implot_internal.h">
+      <Filter>Файлы заголовков\ImGui</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\audiosource\speech\Elements.def">
+      <Filter>src\speech</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\audiosource\speech\legal_readme.txt">
+      <Filter>src\speech</Filter>
+    </Text>
   </ItemGroup>
 </Project>
